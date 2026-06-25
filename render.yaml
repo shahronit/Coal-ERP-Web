@@ -1,0 +1,44 @@
+# Render Blueprint — Coal ERP Web
+# Deploy: push to main, then open Dashboard → Blueprints → New Blueprint Instance
+# Or: https://dashboard.render.com/blueprint/new?repo=https://github.com/shahronit/Coal-ERP-Web
+
+databases:
+  - name: coal-erp-db
+    databaseName: tradecrm
+    user: tradecrm
+    plan: basic-256mb
+    region: singapore
+
+services:
+  - type: web
+    name: coal-erp-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    region: singapore
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: uploads
+      mountPath: /app/uploads
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATABASE_PROVIDER
+        value: postgres
+      - key: DATABASE_URL
+        fromDatabase:
+          name: coal-erp-db
+          property: connectionString
+      - key: TRADECRM_STATIC_DIR
+        value: /app/frontend/dist
+      - key: UPLOAD_DIR
+        value: /app/uploads
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true

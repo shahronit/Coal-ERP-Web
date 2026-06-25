@@ -3,6 +3,7 @@ const config = require('./config');
 const logger = require('./config/logger');
 const { connectDatabase, disconnectDatabase } = require('./config/database');
 const { startCronJobs } = require('./jobs/notificationCron');
+const { bootstrapCloudDatabase } = require('./bootstrap/cloudBootstrap');
 
 let server;
 let cronStarted = false;
@@ -11,6 +12,7 @@ const startServer = async ({ port = config.port, host = config.host } = {}) => {
   if (server) return server;
 
   await connectDatabase();
+  await bootstrapCloudDatabase();
 
   return new Promise((resolve, reject) => {
     server = app.listen(port, host, () => {

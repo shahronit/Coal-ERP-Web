@@ -53,7 +53,11 @@ const backupGcsBucket = process.env.BACKUP_GCS_BUCKET || `${firebaseProjectId}-b
 
 const parseAllowedOrigins = () => {
   const raw = process.env.CORS_ALLOWED_ORIGINS || '';
-  return raw.split(',').map((item) => item.trim()).filter(Boolean);
+  const origins = raw.split(',').map((item) => item.trim()).filter(Boolean);
+  if (process.env.RENDER_EXTERNAL_URL && !origins.includes(process.env.RENDER_EXTERNAL_URL)) {
+    origins.push(process.env.RENDER_EXTERNAL_URL);
+  }
+  return origins;
 };
 
 module.exports = {
@@ -61,7 +65,7 @@ module.exports = {
   isServerMode: deployMode === 'server',
   isClientMode: deployMode === 'client',
   port: parseInt(process.env.PORT || '4000', 10),
-  host: process.env.HOST || '127.0.0.1',
+  host: process.env.HOST || (process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1'),
   nodeEnv: process.env.NODE_ENV || 'development',
   userDataDir,
   dataDir,
@@ -88,7 +92,7 @@ module.exports = {
     accessExpires: process.env.JWT_ACCESS_EXPIRES || '15m',
     refreshExpires: process.env.JWT_REFRESH_EXPIRES || '7d',
   },
-  frontendUrl: process.env.FRONTEND_URL || 'http://localhost:5173',
+  frontendUrl: process.env.FRONTEND_URL || process.env.RENDER_EXTERNAL_URL || 'http://localhost:5173',
   uploadDir,
   largeTransactionThreshold: parseFloat(process.env.LARGE_TRANSACTION_THRESHOLD || '100000'),
   lowStockThresholdPercent: parseFloat(process.env.LOW_STOCK_THRESHOLD_PERCENT || '10'),

@@ -16,12 +16,9 @@ COPY backend/src ./src
 COPY --from=frontend-build /app/frontend/dist /app/frontend/dist
 
 ENV NODE_ENV=production
-ENV PORT=4000
 ENV HOST=0.0.0.0
 ENV TRADECRM_STATIC_DIR=/app/frontend/dist
 ENV UPLOAD_DIR=/app/uploads
-
-EXPOSE 4000
-VOLUME ["/app/uploads"]
+EXPOSE 10000
 
 CMD ["sh", "-c", "npx prisma migrate deploy && node src/server.js"]
