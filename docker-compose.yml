@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tradecrm-web-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tradecrm
+      POSTGRES_PASSWORD: tradecrm
+      POSTGRES_DB: tradecrm
+    ports:
+      - "5432:5432"
+    volumes:
+      - tradecrm_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tradecrm -d tradecrm"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tradecrm-web-app
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgresql://tradecrm:tradecrm@postgres:5432/tradecrm
+      DATABASE_PROVIDER: postgres
+      HOST: 0.0.0.0
+      PORT: 4000
+      NODE_ENV: production
+      TRADECRM_STATIC_DIR: /app/frontend/dist
+      UPLOAD_DIR: /app/uploads
+      FRONTEND_URL: http://localhost:4000
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change-me-access-secret-min-32-chars}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change-me-refresh-secret-min-32-chars}
+    volumes:
+      - tradecrm_uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  tradecrm_pgdata:
+  tradecrm_uploads:

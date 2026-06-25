@@ -1,0 +1,30 @@
+{
+  "name": "coal-trading-erp-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VK Trading ERP — web application (browser + shared server)",
+  "scripts": {
+    "postinstall": "cd backend && npm install && npx prisma generate && cd ../frontend && npm install",
+    "predev": "node scripts/free-port.js 5173",
+    "dev": "concurrently -k -n frontend,api -c cyan,green \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm install && npx prisma generate",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start": "npm run build && npm run start:server",
+    "start:server": "cd backend && npm run db:migrate && npm run start:web",
+    "start:web": "cd backend && npm run start:web",
+    "preview": "cd frontend && npm run preview",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "docker:up": "docker compose up --build -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f app",
+    "test": "cd backend && npm test",
+    "db:audit": "cd backend && node scripts/db-audit.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

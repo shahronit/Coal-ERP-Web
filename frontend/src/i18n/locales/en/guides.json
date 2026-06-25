@@ -1,0 +1,202 @@
+{
+  "topics": {
+    "getting-started": {
+      "title": "Getting Started",
+      "summary": "Learn the easiest way to start using TradeCRM Pro.",
+      "steps": [
+        { "title": "Choose your language", "body": "Use the language switcher on the login page or top bar to select English or Hindi." },
+        { "title": "Sign in", "body": "Enter your email and password. Demo users can open the demo access section on the login page." },
+        { "title": "Check the dashboard", "body": "Start from the dashboard to see sales, purchases, stock, payments, and profit." },
+        { "title": "Use quick actions", "body": "Click the quick cards for common tasks like purchase, payment, reports, or help." },
+        { "title": "Open Help anytime", "body": "Use the Help button at the bottom-right when you are unsure what to do next." }
+      ]
+    },
+    "login-profile": {
+      "title": "Login & Profile",
+      "summary": "Sign in safely and manage your password.",
+      "steps": [
+        { "title": "Open the login page", "body": "Go to the application address and select your preferred language." },
+        { "title": "Enter login details", "body": "Use the email and password given by your admin." },
+        { "title": "Open your profile menu", "body": "Click the circle with your initial in the top-right corner." },
+        { "title": "Change password", "body": "Choose Change Password, enter your old password, and save the new one." },
+        { "title": "Logout after work", "body": "Use Logout from the same profile menu when finished." }
+      ]
+    },
+    "master-data": {
+      "title": "Adding Master Data",
+      "summary": "Create customers, suppliers, partners, products, and setup lists.",
+      "steps": [
+        { "title": "Open People & Products", "body": "Use the sidebar section for customers, suppliers, products, and master data." },
+        { "title": "Click Add New", "body": "Add one record at a time using simple forms." },
+        { "title": "Fill required details", "body": "Enter name, phone, GSTIN, SKU, or tax values depending on the list." },
+        { "title": "Save", "body": "Click Save. The new item is immediately available in daily work screens." },
+        { "title": "Edit when needed", "body": "Use the edit icon in the table to correct details later." }
+      ]
+    },
+    "purchases": {
+      "title": "Recording Purchases",
+      "summary": "Track what you buy and confirm it into stock.",
+      "steps": [
+        { "title": "Open Purchases", "body": "Go to Daily Work and select Purchases." },
+        { "title": "Create a purchase", "body": "Click New Purchase and add supplier, date, product, quantity, rate, GST, and freight." },
+        { "title": "Review the amount", "body": "Check the calculated total before confirming." },
+        { "title": "Confirm draft purchases", "body": "Use the confirm button so inventory stock is updated." },
+        { "title": "Search old purchases", "body": "Use the search box to find bills by number or supplier." }
+      ]
+    },
+    "sales": {
+      "title": "Recording Sales",
+      "summary": "Record customer sales and track profit.",
+      "steps": [
+        { "title": "Open Sales", "body": "Go to Daily Work and select Sales." },
+        { "title": "Create a sale", "body": "Click New Sale and choose the customer and product." },
+        { "title": "Enter quantity and price", "body": "Fill quantity, rate, GST, and other charges." },
+        { "title": "Save the sale", "body": "The system calculates amount and profit for reporting." },
+        { "title": "Review sales history", "body": "Use the table to search and edit sales records." }
+      ]
+    },
+    "inventory": {
+      "title": "Inventory & Stock",
+      "summary": "See stock value, batches, and movement history.",
+      "steps": [
+        { "title": "Open Inventory", "body": "Go to Daily Work and select Inventory." },
+        { "title": "Check stock value", "body": "The top cards show total stock value, product lines, and batches." },
+        { "title": "View current stock", "body": "The Current Stock tab shows product quantity, weight, and value." },
+        { "title": "View movements", "body": "The Movements tab shows stock usage and allocation history." },
+        { "title": "Keep purchases confirmed", "body": "Stock updates when purchases are confirmed." }
+      ]
+    },
+    "payments": {
+      "title": "Payments",
+      "summary": "Record money received and money paid.",
+      "steps": [
+        { "title": "Open Payments", "body": "Go to Daily Work and select Payments." },
+        { "title": "Check receivable and payable", "body": "The summary cards show money to receive and money to pay." },
+        { "title": "Record a payment", "body": "Click Record Payment and choose received or paid." },
+        { "title": "Choose payment mode", "body": "Select Cash, Bank Transfer, UPI, or Cheque." },
+        { "title": "Save reference details", "body": "Add reference number if available, then save." }
+      ]
+    },
+    "reports": {
+      "title": "Reports",
+      "summary": "Download business summaries as Excel or PDF.",
+      "steps": [
+        { "title": "Open Reports", "body": "Go to Money & Reports and select Reports." },
+        { "title": "Choose report type", "body": "Pick purchase, sales, inventory, profit, ROI, expense, or payment report." },
+        { "title": "Download Excel", "body": "Use Excel when you want to filter or calculate more." },
+        { "title": "Download PDF", "body": "Use PDF when you want to share or print." },
+        { "title": "Review regularly", "body": "Download reports weekly or monthly for business review." }
+      ]
+    },
+    "documents": {
+      "title": "Documents",
+      "summary": "Upload and find bills, invoices, contracts, and files.",
+      "steps": [
+        { "title": "Open Documents", "body": "Go to Other and select Documents." },
+        { "title": "Choose entity type", "body": "Select whether the file belongs to purchase, sale, payment, or another record." },
+        { "title": "Choose file", "body": "Upload PDF, image, or spreadsheet files." },
+        { "title": "Click Upload", "body": "The document is saved and listed in the table." },
+        { "title": "Search by file details", "body": "Use the document list to review uploaded files." }
+      ]
+    },
+    "dashboard": {
+      "title": "Dashboard Overview",
+      "summary": "Understand the main numbers on your home screen.",
+      "steps": [
+        { "title": "Read the top cards", "body": "Cards show purchases, sales, profit, stock value, payments, investments, expenses, and assets." },
+        { "title": "Check trends", "body": "The monthly chart shows how business is changing over time." },
+        { "title": "Review customers and suppliers", "body": "Top lists help identify important customers and suppliers." },
+        { "title": "Use quick actions", "body": "Start common tasks directly from the dashboard." },
+        { "title": "Open help", "body": "Use the guide link when you want a simple walkthrough." }
+      ]
+    },
+    "profit-loss": {
+      "title": "Profit & Loss Analytics",
+      "summary": "Review profit by transaction, FIFO batch, product, and customer.",
+      "steps": [
+        { "title": "Open Profit & Loss", "body": "Use the Profit & Money section and open Profit & Loss." },
+        { "title": "Filter the period", "body": "Select From and To dates, then click Apply." },
+        { "title": "Read transaction margin", "body": "The transaction tab shows revenue, cost, profit, and margin for each sale." },
+        { "title": "Compare products and customers", "body": "Use By Product and By Customer to see where the strongest margins come from." },
+        { "title": "Investigate low margin", "body": "Open sale detail to see which FIFO batches were consumed and how profit was made." }
+      ]
+    },
+    "batch-pl": {
+      "title": "FIFO Batch P&L",
+      "summary": "Understand realized profit as purchase lots are consumed by sales.",
+      "steps": [
+        { "title": "Confirm purchases first", "body": "A confirmed purchase creates an inventory batch with cost per unit." },
+        { "title": "Create a sale", "body": "Sales consume old batches first using FIFO." },
+        { "title": "Review batch tab", "body": "The FIFO Batches tab shows sold quantity, remaining quantity, realized revenue, and realized profit." },
+        { "title": "Check sale detail", "body": "A sale view shows the exact batches allocated to each sale line." },
+        { "title": "Use clean margins", "body": "Taxable revenue is also stored so pre-GST margin can be analyzed separately." }
+      ]
+    },
+    "pl-statement": {
+      "title": "P&L Statement",
+      "summary": "View a Tally-style profit statement for any period.",
+      "steps": [
+        { "title": "Open P&L Statement", "body": "Go to Accounting and choose P&L Statement." },
+        { "title": "Choose dates", "body": "Apply a period filter for month, quarter, or year." },
+        { "title": "Read gross profit", "body": "Revenue minus COGS shows gross profit from trading." },
+        { "title": "Review expenses", "body": "Direct and indirect expenses are deducted separately." },
+        { "title": "Check net profit", "body": "Net profit includes expenses and depreciation." }
+      ]
+    },
+    "aging": {
+      "title": "AR/AP Aging",
+      "summary": "Track receivables and payables by overdue bucket.",
+      "steps": [
+        { "title": "Open AR/AP Aging", "body": "Go to Accounting and choose AR/AP Aging." },
+        { "title": "Review buckets", "body": "Balances are grouped into 0-30, 31-60, 61-90, and 90+ days." },
+        { "title": "Check receivables", "body": "Receivables show customer money still pending." },
+        { "title": "Check payables", "body": "Payables show supplier money still due." },
+        { "title": "Follow up", "body": "Use CRM activities to create follow-up reminders for overdue parties." }
+      ]
+    },
+    "day-book": {
+      "title": "Day Book",
+      "summary": "Review daily vouchers in one chronological register.",
+      "steps": [
+        { "title": "Open Day Book", "body": "Go to Accounting and choose Day Book." },
+        { "title": "Filter dates", "body": "Select a date range for the voucher period." },
+        { "title": "Review entries", "body": "Sales, purchases, payments, and expenses appear together." },
+        { "title": "Check debit and credit", "body": "Amounts are separated into debit and credit columns." },
+        { "title": "Use for daily review", "body": "Review this page at the end of each business day." }
+      ]
+    },
+    "gst-summary": {
+      "title": "GST Summary",
+      "summary": "Compare output GST from sales with input GST from purchases.",
+      "steps": [
+        { "title": "Open GST Summary", "body": "Go to Accounting and choose GST Summary." },
+        { "title": "Choose period", "body": "Select the return period and apply filters." },
+        { "title": "Read output GST", "body": "Output GST comes from confirmed sales." },
+        { "title": "Read input GST", "body": "Input GST comes from confirmed purchases." },
+        { "title": "Check payable", "body": "Positive payable means tax to pay; negative means available input credit." }
+      ]
+    },
+    "leads-pipeline": {
+      "title": "Leads Pipeline",
+      "summary": "Manage opportunities from new lead to won or lost.",
+      "steps": [
+        { "title": "Open Leads Pipeline", "body": "Go to CRM and choose Leads Pipeline." },
+        { "title": "Create a lead", "body": "Add name, company, contact details, source, estimated value, and notes." },
+        { "title": "Set stage", "body": "Move the lead through New, Contacted, Qualified, Won, or Lost." },
+        { "title": "Review value", "body": "Each stage shows total estimated value." },
+        { "title": "Plan next step", "body": "Create activities for calls, meetings, and follow-ups." }
+      ]
+    },
+    "activities": {
+      "title": "Activities & Follow-ups",
+      "summary": "Track calls, emails, meetings, tasks, and reminders.",
+      "steps": [
+        { "title": "Open Activities", "body": "Go to CRM and choose Activities." },
+        { "title": "Create activity", "body": "Choose type, subject, due date, status, and notes." },
+        { "title": "Work from due dates", "body": "Upcoming and overdue activities help the team follow up on time." },
+        { "title": "Mark completed", "body": "Set status to Completed when the task is done." },
+        { "title": "Use notifications", "body": "Overdue activities can create reminder notifications." }
+      ]
+    }
+  }
+}

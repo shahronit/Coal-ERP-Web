@@ -1,0 +1,847 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("READ_ONLY")
+  phone        String?
+  username     String?
+  department   String?
+  designation  String?
+  address      String?
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+
+  refreshTokens          RefreshToken[]
+  passwordResetTokens    PasswordResetToken[]
+  auditLogs              AuditLog[]
+  notifications          Notification[]
+  documents              Document[]
+  createdPurchases       Purchase[]           @relation("PurchaseCreatedBy")
+  updatedPurchases       Purchase[]           @relation("PurchaseUpdatedBy")
+  createdSales           Sale[]               @relation("SaleCreatedBy")
+  updatedSales           Sale[]               @relation("SaleUpdatedBy")
+  ownedLeads             Lead[]               @relation("LeadOwner")
+  ownedActivities        Activity[]           @relation("ActivityOwner")
+  createdReportTemplates ReportTemplate[]     @relation("ReportTemplateCreatedBy")
+  updatedReportTemplates ReportTemplate[]     @relation("ReportTemplateUpdatedBy")
+  reportRuns             ReportRun[]
+  profile                UserProfile?
+  backupRecords          BackupRecord[]
+}
+
+model UserProfile {
+  id         String   @id @default(uuid())
+  userId     String   @unique
+  phone      String?
+  jobTitle   String?
+  department String?
+  address    String?
+  city       String?
+  state      String?
+  country    String?  @default("India")
+  pincode    String?
+  bio        String?
+  avatarUrl  String?
+  locale     String?  @default("en")
+  timezone   String?  @default("Asia/Kolkata")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  tokenHash String
+  userId    String
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  tokenHash String
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Partner {
+  id          String    @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  address     String?
+  profitShare Decimal   @default(0)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  investments PartnerInvestment[]
+
+  @@index([name])
+}
+
+model Supplier {
+  id          String    @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  address     String?
+  gstin       String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  purchases Purchase[]
+
+  @@index([name])
+}
+
+model Customer {
+  id          String    @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  address     String?
+  gstin       String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  sales      Sale[]
+  activities Activity[]
+
+  @@index([name])
+}
+
+model CoalQuality {
+  id             String    @id @default(uuid())
+  name           String    @unique
+  description    String?
+  gcv            Decimal?
+  ashPercent     Decimal?
+  moisturePercent Decimal?
+  isActive       Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  createdById    String?
+  updatedById    String?
+  deletedAt      DateTime?
+
+  purchaseLineItems PurchaseLineItem[]
+  saleLineItems     SaleLineItem[]
+  inventoryBatches  InventoryBatch[]
+  stockLedger       StockLedger[]
+
+  @@index([name])
+}
+
+model PurchaseBatch {
+  id          String    @id @default(uuid())
+  code        String    @unique
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  purchases        Purchase[]
+  inventoryBatches InventoryBatch[]
+
+  @@index([name])
+  @@index([code])
+}
+
+model SalesBatch {
+  id          String    @id @default(uuid())
+  code        String    @unique
+  name        String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  sales Sale[]
+
+  @@index([name])
+  @@index([code])
+}
+
+model Location {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  address     String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  purchases        Purchase[]
+  inventoryBatches InventoryBatch[]
+  stockLedger      StockLedger[]
+}
+
+model ExpenseType {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  expenses                  Expense[]
+  purchaseExpenseAdjustments PurchaseExpenseAdjustment[]
+  saleExpenseAdjustments     SaleExpenseAdjustment[]
+}
+
+model IncomeType {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  purchaseIncomeAdjustments PurchaseIncomeAdjustment[]
+  saleIncomeAdjustments     SaleIncomeAdjustment[]
+}
+
+model AssetType {
+  id               String    @id @default(uuid())
+  name             String    @unique
+  description      String?
+  depreciationRate Decimal   @default(10)
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  createdById      String?
+  updatedById      String?
+  deletedAt        DateTime?
+
+  assets Asset[]
+}
+
+model TaxConfiguration {
+  id            String    @id @default(uuid())
+  name          String
+  gstRate       Decimal
+  effectiveFrom DateTime
+  effectiveTo   DateTime?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  createdById   String?
+  updatedById   String?
+  deletedAt     DateTime?
+
+  purchaseLineItems PurchaseLineItem[]
+  saleLineItems     SaleLineItem[]
+}
+
+model Purchase {
+  id               String    @id @default(uuid())
+  purchaseNumber   String    @unique
+  purchaseDate     DateTime
+  purchaseType     String    @default("DIRECT")
+  purchaseBatchId  String?
+  supplierId       String
+  locationId       String?
+  truckNumber      String?
+  billStockPercent Decimal   @default(100)
+  status           String    @default("DRAFT")
+  subtotal         Decimal   @default(0)
+  freightTotal     Decimal   @default(0)
+  expenseTotal          Decimal   @default(0)
+  expenseAdjustmentTotal Decimal   @default(0)
+  incomeAdjustmentTotal Decimal   @default(0)
+  gstTotal         Decimal   @default(0)
+  netAmount        Decimal   @default(0)
+  paidAmount       Decimal   @default(0)
+  outstanding      Decimal   @default(0)
+  dueDate          DateTime?
+  notes            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  createdById      String?
+  updatedById      String?
+  deletedAt        DateTime?
+
+  supplier          Supplier                   @relation(fields: [supplierId], references: [id])
+  location          Location?                  @relation(fields: [locationId], references: [id])
+  purchaseBatch     PurchaseBatch?             @relation(fields: [purchaseBatchId], references: [id])
+  createdBy         User?                      @relation("PurchaseCreatedBy", fields: [createdById], references: [id])
+  updatedBy         User?                      @relation("PurchaseUpdatedBy", fields: [updatedById], references: [id])
+  lineItems          PurchaseLineItem[]
+  incomeAdjustments  PurchaseIncomeAdjustment[]
+  expenseAdjustments PurchaseExpenseAdjustment[]
+
+  @@index([purchaseDate])
+  @@index([supplierId])
+  @@index([purchaseDate, status, deletedAt])
+  @@index([purchaseBatchId])
+}
+
+model PurchaseIncomeAdjustment {
+  id                 String  @id @default(uuid())
+  purchaseId         String
+  incomeTypeId       String
+  basisType          String  @default("FLAT")
+  value              Decimal
+  resolvedAmount     Decimal @default(0)
+  description        String?
+  purchaseLineItemId String?
+
+  purchase         Purchase          @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  incomeType       IncomeType        @relation(fields: [incomeTypeId], references: [id])
+  purchaseLineItem PurchaseLineItem? @relation(fields: [purchaseLineItemId], references: [id], onDelete: SetNull)
+
+  @@index([purchaseId])
+  @@index([purchaseLineItemId])
+}
+
+model PurchaseExpenseAdjustment {
+  id                 String  @id @default(uuid())
+  purchaseId         String
+  expenseTypeId      String
+  basisType          String  @default("FLAT")
+  value              Decimal
+  resolvedAmount     Decimal @default(0)
+  description        String?
+  purchaseLineItemId String?
+
+  purchase         Purchase          @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  expenseType      ExpenseType       @relation(fields: [expenseTypeId], references: [id])
+  purchaseLineItem PurchaseLineItem? @relation(fields: [purchaseLineItemId], references: [id], onDelete: SetNull)
+
+  @@index([purchaseId])
+  @@index([purchaseLineItemId])
+}
+
+model PurchaseLineItem {
+  id                 String   @id @default(uuid())
+  purchaseId         String
+  qualityId          String
+  truckNumber        String?
+  weight             Decimal
+  rate               Decimal
+  freight            Decimal  @default(0)
+  additionalExpenses Decimal  @default(0)
+  applyGst           Boolean  @default(true)
+  taxConfigurationId String?
+  gstRate            Decimal  @default(0)
+  gstAmount          Decimal  @default(0)
+  totalCost          Decimal  @default(0)
+  costPerMT          Decimal  @default(0)
+  costPerMTIncGst    Decimal  @default(0)
+  netAmount          Decimal  @default(0)
+
+  purchase         Purchase          @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  quality          CoalQuality       @relation(fields: [qualityId], references: [id])
+  taxConfiguration TaxConfiguration? @relation(fields: [taxConfigurationId], references: [id])
+  inventoryBatch   InventoryBatch?
+  incomeAdjustments  PurchaseIncomeAdjustment[]
+  expenseAdjustments PurchaseExpenseAdjustment[]
+
+  @@index([purchaseId])
+  @@index([qualityId])
+}
+
+model InventoryBatch {
+  id                 String   @id @default(uuid())
+  purchaseLineItemId String   @unique
+  qualityId          String
+  purchaseBatchId    String?
+  locationId         String?
+  purchaseDate       DateTime
+  originalWeight     Decimal
+  remainingWeight    Decimal
+  costPerMT          Decimal
+  costPerMTIncGst    Decimal  @default(0)
+  soldWeight         Decimal  @default(0)
+  realizedRevenue    Decimal  @default(0)
+  taxableRevenue     Decimal  @default(0)
+  realizedProfit     Decimal  @default(0)
+
+  purchaseLineItem PurchaseLineItem      @relation(fields: [purchaseLineItemId], references: [id])
+  quality          CoalQuality           @relation(fields: [qualityId], references: [id])
+  purchaseBatch    PurchaseBatch?        @relation(fields: [purchaseBatchId], references: [id])
+  location         Location?             @relation(fields: [locationId], references: [id])
+  allocations      InventoryAllocation[]
+  stockLedger      StockLedger[]
+
+  @@index([qualityId, locationId, purchaseDate])
+}
+
+model Sale {
+  id           String    @id @default(uuid())
+  saleNumber   String    @unique
+  saleDate     DateTime
+  saleType     String    @default("DIRECT")
+  salesBatchId String?
+  customerId   String
+  truckNumber  String?
+  status       String    @default("DRAFT")
+  subtotal              Decimal   @default(0)
+  freightTotal          Decimal   @default(0)
+  expenseAdjustmentTotal Decimal  @default(0)
+  incomeAdjustmentTotal Decimal   @default(0)
+  gstTotal              Decimal   @default(0)
+  grossAmount  Decimal   @default(0)
+  netAmount    Decimal   @default(0)
+  totalCost    Decimal   @default(0)
+  profit       Decimal   @default(0)
+  paidAmount   Decimal   @default(0)
+  outstanding  Decimal   @default(0)
+  dueDate      DateTime?
+  notes        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  createdById  String?
+  updatedById  String?
+  deletedAt    DateTime?
+
+  customer       Customer           @relation(fields: [customerId], references: [id])
+  salesBatch     SalesBatch?        @relation(fields: [salesBatchId], references: [id])
+  createdBy      User?              @relation("SaleCreatedBy", fields: [createdById], references: [id])
+  updatedBy      User?              @relation("SaleUpdatedBy", fields: [updatedById], references: [id])
+  lineItems          SaleLineItem[]
+  freightEntries     SaleFreightEntry[]
+  expenseAdjustments SaleExpenseAdjustment[]
+  incomeAdjustments  SaleIncomeAdjustment[]
+
+  @@index([saleDate])
+  @@index([customerId])
+  @@index([saleDate, status, deletedAt])
+  @@index([salesBatchId])
+}
+
+model SaleFreightEntry {
+  id          String  @id @default(uuid())
+  saleId      String
+  description String?
+  amount      Decimal
+  truckNumber String?
+
+  sale Sale @relation(fields: [saleId], references: [id], onDelete: Cascade)
+
+  @@index([saleId])
+}
+
+model SaleExpenseAdjustment {
+  id             String  @id @default(uuid())
+  saleId         String
+  expenseTypeId  String
+  basisType      String  @default("FLAT")
+  value          Decimal
+  resolvedAmount Decimal @default(0)
+  description    String?
+  saleLineItemId String?
+
+  sale         Sale            @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  expenseType  ExpenseType     @relation(fields: [expenseTypeId], references: [id])
+  saleLineItem SaleLineItem?   @relation(fields: [saleLineItemId], references: [id], onDelete: SetNull)
+
+  @@index([saleId])
+  @@index([saleLineItemId])
+}
+
+model SaleIncomeAdjustment {
+  id             String  @id @default(uuid())
+  saleId         String
+  incomeTypeId   String
+  basisType      String  @default("FLAT")
+  value          Decimal
+  resolvedAmount Decimal @default(0)
+  description    String?
+  saleLineItemId String?
+
+  sale         Sale          @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  incomeType   IncomeType    @relation(fields: [incomeTypeId], references: [id])
+  saleLineItem SaleLineItem? @relation(fields: [saleLineItemId], references: [id], onDelete: SetNull)
+
+  @@index([saleId])
+  @@index([saleLineItemId])
+}
+
+model SaleLineItem {
+  id                 String   @id @default(uuid())
+  saleId             String
+  qualityId          String
+  truckNumber        String?
+  weight             Decimal
+  rate               Decimal
+  applyGst           Boolean  @default(true)
+  taxConfigurationId String?
+  gstRate            Decimal  @default(0)
+  gstAmount          Decimal  @default(0)
+  grossAmount        Decimal  @default(0)
+  netAmount          Decimal  @default(0)
+  totalCost          Decimal  @default(0)
+  profit             Decimal  @default(0)
+
+  sale             Sale                  @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  quality          CoalQuality           @relation(fields: [qualityId], references: [id])
+  taxConfiguration TaxConfiguration?     @relation(fields: [taxConfigurationId], references: [id])
+  allocations      InventoryAllocation[]
+  incomeAdjustments  SaleIncomeAdjustment[]
+  expenseAdjustments SaleExpenseAdjustment[]
+
+  @@index([saleId])
+  @@index([qualityId])
+}
+
+model InventoryAllocation {
+  id               String   @id @default(uuid())
+  saleLineItemId   String
+  inventoryBatchId String
+  weight           Decimal
+  allocatedCost    Decimal
+  allocatedRevenue Decimal  @default(0)
+  taxableRevenue   Decimal  @default(0)
+  profit           Decimal  @default(0)
+  createdAt        DateTime @default(now())
+
+  saleLineItem   SaleLineItem   @relation(fields: [saleLineItemId], references: [id], onDelete: Cascade)
+  inventoryBatch InventoryBatch @relation(fields: [inventoryBatchId], references: [id])
+
+  @@index([saleLineItemId])
+  @@index([inventoryBatchId])
+}
+
+model StockLedger {
+  id            String   @id @default(uuid())
+  qualityId     String
+  locationId    String?
+  batchId       String?
+  entryType     String
+  referenceType String
+  referenceId   String
+  weightMT      Decimal
+  balanceMT     Decimal
+  costPerMT     Decimal?
+  createdAt     DateTime @default(now())
+
+  quality  CoalQuality     @relation(fields: [qualityId], references: [id])
+  location Location?       @relation(fields: [locationId], references: [id])
+  batch    InventoryBatch? @relation(fields: [batchId], references: [id])
+
+  @@index([qualityId, createdAt])
+  @@index([batchId])
+}
+
+model Payment {
+  id          String    @id @default(uuid())
+  paymentType String
+  paymentMode String
+  amount      Decimal
+  paymentDate DateTime
+  referenceNo String?
+  paidByName  String?
+  entityType  String
+  entityId    String?
+  notes       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  @@index([paymentDate])
+  @@index([entityType, entityId])
+  @@index([paymentDate, entityType, entityId])
+}
+
+model PartnerInvestment {
+  id             String    @id @default(uuid())
+  partnerId      String
+  amount         Decimal
+  investmentDate DateTime
+  terms          String?
+  expectedROI    Decimal   @default(0)
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  createdById    String?
+  updatedById    String?
+  deletedAt      DateTime?
+
+  partner Partner            @relation(fields: [partnerId], references: [id])
+  returns InvestmentReturn[]
+
+  @@index([partnerId])
+}
+
+model InvestmentReturn {
+  id           String   @id @default(uuid())
+  investmentId String
+  returnDate   DateTime
+  amount       Decimal
+  profitShare  Decimal
+  roiPercent   Decimal
+  notes        String?
+  createdAt    DateTime @default(now())
+
+  investment PartnerInvestment @relation(fields: [investmentId], references: [id], onDelete: Cascade)
+}
+
+model Expense {
+  id            String    @id @default(uuid())
+  expenseTypeId String
+  category      String
+  amount        Decimal
+  expenseDate   DateTime
+  description   String?
+  referenceNo   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  createdById   String?
+  updatedById   String?
+  deletedAt     DateTime?
+
+  expenseType ExpenseType @relation(fields: [expenseTypeId], references: [id])
+
+  @@index([expenseDate])
+}
+
+model Asset {
+  id               String    @id @default(uuid())
+  name             String
+  assetTypeId      String
+  purchaseDate     DateTime
+  purchaseValue    Decimal
+  currentValue     Decimal
+  depreciationRate Decimal
+  serialNumber     String?
+  location         String?
+  notes            String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  createdById      String?
+  updatedById      String?
+  deletedAt        DateTime?
+
+  assetType AssetType @relation(fields: [assetTypeId], references: [id])
+
+  @@index([name])
+}
+
+model Document {
+  id           String    @id @default(uuid())
+  filename     String
+  originalName String
+  mimeType     String
+  size         Int
+  filePath     String
+  entityType   String
+  entityId     String
+  uploadedById String?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  uploadedBy User? @relation(fields: [uploadedById], references: [id])
+
+  @@index([entityType, entityId])
+}
+
+model AuditLog {
+  id            String   @id @default(uuid())
+  userId        String?
+  action        String
+  entity        String
+  entityId      String
+  previousValue String?
+  newValue      String?
+  createdAt     DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([entity, entityId])
+  @@index([createdAt])
+}
+
+model Notification {
+  id        String    @id @default(uuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  metadata  String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+}
+
+model ReportTemplate {
+  id             String    @id @default(uuid())
+  name           String
+  description    String?
+  baseReportType String
+  columns        String
+  filters        String?
+  allowedRoles   String
+  isActive       Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+  createdById    String?
+  updatedById    String?
+
+  createdBy User?       @relation("ReportTemplateCreatedBy", fields: [createdById], references: [id])
+  updatedBy User?       @relation("ReportTemplateUpdatedBy", fields: [updatedById], references: [id])
+  runs      ReportRun[]
+
+  @@index([baseReportType])
+  @@index([isActive, deletedAt])
+}
+
+model ReportRun {
+  id         String   @id @default(uuid())
+  templateId String
+  runById    String?
+  format     String
+  filters    String?
+  createdAt  DateTime @default(now())
+
+  template ReportTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  runBy    User?          @relation(fields: [runById], references: [id])
+
+  @@index([templateId])
+  @@index([runById])
+  @@index([createdAt])
+}
+
+model Lead {
+  id             String    @id @default(uuid())
+  name           String
+  company        String?
+  email          String?
+  phone          String?
+  source         String?
+  stage          String    @default("NEW")
+  estimatedValue Decimal   @default(0)
+  ownerId        String?
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  createdById    String?
+  updatedById    String?
+  deletedAt      DateTime?
+
+  owner      User?      @relation("LeadOwner", fields: [ownerId], references: [id])
+  activities Activity[]
+
+  @@index([stage])
+  @@index([name])
+}
+
+model Activity {
+  id          String    @id @default(uuid())
+  type        String
+  subject     String
+  dueDate     DateTime?
+  status      String    @default("OPEN")
+  notes       String?
+  leadId      String?
+  customerId  String?
+  ownerId     String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdById String?
+  updatedById String?
+  deletedAt   DateTime?
+
+  lead     Lead?     @relation(fields: [leadId], references: [id])
+  customer Customer? @relation(fields: [customerId], references: [id])
+  owner    User?     @relation("ActivityOwner", fields: [ownerId], references: [id])
+
+  @@index([dueDate])
+  @@index([status])
+}
+
+model SequenceCounter {
+  id      String @id
+  prefix  String
+  year    Int
+  counter Int    @default(0)
+
+  @@unique([prefix, year])
+}
+
+model AppSetting {
+  id                String   @id @default("global")
+  companyName       String?
+  appName           String?
+  companyLogo       String?
+  setupCompleted    Boolean  @default(false)
+  crmEnabled        Boolean  @default(false)
+  fifoCostBasis     String   @default("EX_GST")
+  roleModules       Json?
+  autoBackupEnabled Boolean  @default(true)
+  backupDir         String?
+  lastBackupAt      DateTime?
+  customDatabasePath String?
+  updatedAt         DateTime @updatedAt
+}
+
+model BackupRecord {
+  id          String   @id @default(uuid())
+  fileName    String
+  filePath    String
+  sizeBytes   Int      @default(0)
+  includes    String?
+  createdAt   DateTime @default(now())
+  createdById String?
+  createdBy   User?    @relation(fields: [createdById], references: [id])
+
+  @@index([createdAt])
+}

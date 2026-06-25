@@ -1,0 +1,197 @@
+{
+  "dashboard": {
+    "title": "डैशबोर्ड",
+    "subtitle": "आपके बिजनेस की पूरी जानकारी एक जगह।",
+    "welcome": "स्वागत है, {{name}}",
+    "guideLink": "नए हैं? 2 मिनट की गाइड से शुरू करें",
+    "quickPurchase": "खरीद जोड़ें",
+    "quickPurchaseBody": "सप्लायर बिल या आए हुए स्टॉक को दर्ज करें।",
+    "quickPayment": "भुगतान दर्ज करें",
+    "quickPaymentBody": "मिला या दिया गया पैसा दर्ज करें।",
+    "quickReports": "रिपोर्ट देखें",
+    "quickReportsBody": "Excel और PDF सारांश डाउनलोड करें।",
+    "quickHelp": "मदद खोलें",
+    "quickHelpBody": "आसान हिंदी/English ट्रेनिंग वीडियो देखें।",
+    "totalPurchases": "कुल खरीद",
+    "totalSales": "कुल बिक्री",
+    "netProfit": "शुद्ध लाभ",
+    "inventoryValue": "स्टॉक मूल्य",
+    "outstanding": "बाकी भुगतान",
+    "investments": "निवेश",
+    "expenses": "खर्च",
+    "assets": "संपत्ति",
+    "monthlyTrends": "मासिक ट्रेंड",
+    "topCustomers": "शीर्ष ग्राहक",
+    "topSuppliers": "शीर्ष सप्लायर",
+    "purchases": "खरीद",
+    "sales": "बिक्री",
+    "profit": "लाभ"
+  },
+  "masters": {
+    "subtitle": "बिजनेस लिस्ट साफ रखें ताकि रोज़ के काम आसान रहें।",
+    "dialogTitle": "{{mode}} {{title}}",
+    "titles": {
+      "partners": "पार्टनर",
+      "suppliers": "सप्लायर",
+      "customers": "ग्राहक",
+      "product-categories": "प्रोडक्ट कैटेगरी",
+      "product-qualities": "प्रोडक्ट क्वालिटी",
+      "products": "प्रोडक्ट",
+      "locations": "लोकेशन",
+      "expense-types": "खर्च प्रकार",
+      "income-types": "आय प्रकार",
+      "asset-types": "संपत्ति प्रकार",
+      "tax-configurations": "टैक्स सेटिंग"
+    }
+  },
+  "purchases": {
+    "title": "खरीद",
+    "subtitle": "बिजनेस की खरीद दर्ज करें और स्टॉक एंट्री कन्फर्म करें।",
+    "new": "नई खरीद",
+    "details": "खरीद विवरण",
+    "confirmItem": "{{number}} कन्फर्म करें",
+    "lineItems": "लाइन आइटम",
+    "addLine": "लाइन जोड़ें",
+    "updatePurchase": "खरीद अपडेट करें",
+    "createPurchase": "खरीद बनाएं",
+    "confirmPurchase": "खरीद कन्फर्म करें"
+  },
+  "sales": {
+    "title": "बिक्री",
+    "subtitle": "ग्राहक बिक्री दर्ज करें और लाभ ट्रैक करें।",
+    "new": "नई बिक्री",
+    "lineItems": "लाइन आइटम",
+    "addLine": "लाइन जोड़ें",
+    "createSale": "बिक्री बनाएं",
+    "saleNumber": "बिक्री {{number}}"
+  },
+  "inventory": {
+    "title": "स्टॉक",
+    "subtitle": "मौजूदा स्टॉक, मूल्य और मूवमेंट हिस्ट्री देखें।",
+    "totalInventoryValue": "कुल स्टॉक मूल्य",
+    "productLines": "प्रोडक्ट लाइन",
+    "totalBatches": "कुल बैच",
+    "currentStock": "मौजूदा स्टॉक",
+    "movements": "मूवमेंट",
+    "batches": "बैच"
+  },
+  "payments": {
+    "title": "भुगतान",
+    "subtitle": "ग्राहकों से मिला और सप्लायर को दिया पैसा ट्रैक करें।",
+    "record": "भुगतान दर्ज करें",
+    "receivable": "लेना है",
+    "payable": "देना है",
+    "netOutstanding": "कुल बाकी"
+  },
+  "expenses": {
+    "title": "खर्च",
+    "subtitle": "रोज़ के बिजनेस खर्च दर्ज करें।",
+    "add": "खर्च जोड़ें"
+  },
+  "assets": {
+    "title": "संपत्ति",
+    "subtitle": "वाहन, मशीन, उपकरण और अन्य कंपनी संपत्ति ट्रैक करें।",
+    "add": "संपत्ति जोड़ें"
+  },
+  "investments": {
+    "title": "पार्टनर निवेश",
+    "subtitle": "पार्टनर पैसा, रिटर्न और ROI ट्रैक करें।",
+    "new": "नया निवेश",
+    "totalInvested": "कुल निवेश",
+    "totalReturns": "कुल रिटर्न",
+    "avgRoi": "औसत ROI",
+    "roiDashboard": "ROI डैशबोर्ड",
+    "investmentHistory": "निवेश हिस्ट्री",
+    "invested": "निवेश",
+    "returns": "रिटर्न",
+    "roi": "ROI"
+  },
+  "documents": {
+    "title": "दस्तावेज़",
+    "subtitle": "बिल, इनवॉइस, कॉन्ट्रैक्ट और बिजनेस फाइलें अपलोड करें।",
+    "uploadTitle": "दस्तावेज़ अपलोड करें"
+  },
+  "reports": {
+    "title": "रिपोर्ट",
+    "subtitle": "बिजनेस समीक्षा के लिए साफ Excel या PDF रिपोर्ट डाउनलोड करें।",
+    "heroHint": "रिपोर्ट प्रकार चुनें, फ़िल्टर लगाएं, और पसंदीदा फॉर्मेट में निर्यात करें।",
+    "stats": {
+      "standard": "स्टैंडर्ड रिपोर्ट",
+      "templates": "कस्टम टेम्पलेट",
+      "documents": "दस्तावेज़ प्रकार"
+    },
+    "filtersTitle": "रिपोर्ट फ़िल्टर",
+    "formats": {
+      "excel": "Excel",
+      "pdf": "PDF",
+      "csv": "CSV"
+    },
+    "tabs": {
+      "standard": "स्टैंडर्ड रिपोर्ट",
+      "documents": "बिजनेस दस्तावेज़",
+      "custom": "कस्टम रिपोर्ट",
+      "admin": "टेम्पलेट एडमिन"
+    },
+    "filters": {
+      "from": "से",
+      "to": "तक"
+    },
+    "documents": {
+      "salesInvoice": "बिक्री इनवॉइस",
+      "purchaseBill": "खरीद बिल",
+      "paymentReceipt": "भुगतान रसीद",
+      "expenseVoucher": "खर्च वाउचर",
+      "investmentStatement": "निवेश स्टेटमेंट",
+      "recordsAvailable": "{{count}} रिकॉर्ड उपलब्ध",
+      "empty": "अभी कोई रिकॉर्ड नहीं"
+    },
+    "selectRecord": "रिकॉर्ड चुनें",
+    "noTemplates": "आपकी भूमिका के लिए कोई कस्टम रिपोर्ट टेम्पलेट उपलब्ध नहीं है।",
+    "custom": {
+      "empty": "अभी कोई कस्टम रिपोर्ट टेम्पलेट उपलब्ध नहीं है।",
+      "emptyAdminHint": "टीम के साथ रिपोर्ट साझा करने के लिए टेम्पलेट एडमिन टैब में टेम्पलेट बनाएं।"
+    },
+    "admin": {
+      "sectionDetails": "टेम्पलेट विवरण",
+      "sectionAccess": "कॉलम और एक्सेस",
+      "columnsCount": "{{count}} कॉलम"
+    },
+    "createTemplate": "टेम्पलेट बनाएं",
+    "editTemplate": "टेम्पलेट बदलें",
+    "deleteTemplate": "हटाएं",
+    "existingTemplates": "मौजूदा टेम्पलेट",
+    "templateName": "टेम्पलेट नाम",
+    "templateDescription": "विवरण",
+    "baseReport": "बेस रिपोर्ट",
+    "columns": "कॉलम",
+    "allowedRoles": "अनुमत भूमिकाएं",
+    "saveTemplate": "टेम्पलेट सेव करें",
+    "templateCreated": "रिपोर्ट टेम्पलेट बन गया",
+    "templateUpdated": "रिपोर्ट टेम्पलेट अपडेट हुआ",
+    "templateSaveFailed": "रिपोर्ट टेम्पलेट सेव नहीं हुआ",
+    "items": {
+      "purchases": "खरीद रिपोर्ट",
+      "sales": "बिक्री रिपोर्ट",
+      "inventory": "स्टॉक रिपोर्ट",
+      "profit": "लाभ रिपोर्ट",
+      "partner-roi": "पार्टनर ROI रिपोर्ट",
+      "expenses": "खर्च रिपोर्ट",
+      "payments": "भुगतान रिपोर्ट"
+    }
+  },
+  "audit": {
+    "title": "ऑडिट ट्रेल",
+    "subtitle": "किसने क्या और कब बदला, यहाँ देखें।",
+    "system": "सिस्टम"
+  },
+  "notifications": {
+    "title": "सूचनाएं",
+    "subtitle": "जरूरी अलर्ट, रिमाइंडर और सिस्टम संदेश।",
+    "none": "कोई सूचना नहीं"
+  },
+  "users": {
+    "title": "यूजर मैनेजमेंट",
+    "subtitle": "टीम मेंबर जोड़ें और उनका एक्सेस चुनें।",
+    "add": "यूजर जोड़ें"
+  }
+}

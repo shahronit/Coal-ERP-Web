@@ -1,0 +1,202 @@
+{
+  "topics": {
+    "getting-started": {
+      "title": "शुरुआत कैसे करें",
+      "summary": "TradeCRM Pro शुरू करने का सबसे आसान तरीका सीखें।",
+      "steps": [
+        { "title": "भाषा चुनें", "body": "लॉगिन पेज या ऊपर की पट्टी में भाषा स्विचर से English या हिंदी चुनें।" },
+        { "title": "लॉगिन करें", "body": "अपना ईमेल और पासवर्ड डालें। डेमो यूजर लॉगिन पेज पर डेमो एक्सेस सेक्शन खोल सकते हैं।" },
+        { "title": "डैशबोर्ड देखें", "body": "डैशबोर्ड से बिक्री, खरीद, स्टॉक, भुगतान और लाभ देखें।" },
+        { "title": "क्विक एक्शन इस्तेमाल करें", "body": "खरीद, भुगतान, रिपोर्ट या मदद जैसे आम कामों के लिए क्विक कार्ड दबाएं।" },
+        { "title": "कभी भी हेल्प खोलें", "body": "अगर अगला कदम समझ न आए तो नीचे दाएं हेल्प बटन दबाएं।" }
+      ]
+    },
+    "login-profile": {
+      "title": "लॉगिन और प्रोफाइल",
+      "summary": "सुरक्षित लॉगिन करें और पासवर्ड संभालें।",
+      "steps": [
+        { "title": "लॉगिन पेज खोलें", "body": "ऐप का पता खोलें और अपनी पसंद की भाषा चुनें।" },
+        { "title": "लॉगिन जानकारी डालें", "body": "एडमिन द्वारा दिया गया ईमेल और पासवर्ड डालें।" },
+        { "title": "प्रोफाइल मेनू खोलें", "body": "ऊपर दाएं अपने नाम के अक्षर वाले गोल बटन पर क्लिक करें।" },
+        { "title": "पासवर्ड बदलें", "body": "Change Password चुनें, पुराना पासवर्ड डालें और नया सेव करें।" },
+        { "title": "काम के बाद लॉगआउट करें", "body": "काम पूरा होने पर उसी मेनू से Logout करें।" }
+      ]
+    },
+    "master-data": {
+      "title": "मास्टर डेटा जोड़ना",
+      "summary": "ग्राहक, सप्लायर, पार्टनर, प्रोडक्ट और सेटअप लिस्ट बनाएं।",
+      "steps": [
+        { "title": "लोग और सामान खोलें", "body": "साइडबार से ग्राहक, सप्लायर, प्रोडक्ट और मास्टर डेटा खोलें।" },
+        { "title": "नया जोड़ें दबाएं", "body": "आसान फॉर्म से एक बार में एक रिकॉर्ड जोड़ें।" },
+        { "title": "जरूरी जानकारी भरें", "body": "लिस्ट के हिसाब से नाम, फोन, GSTIN, SKU या टैक्स वैल्यू डालें।" },
+        { "title": "सेव करें", "body": "Save दबाएं। नया आइटम रोज़ के काम वाली स्क्रीन में तुरंत मिल जाएगा।" },
+        { "title": "जरूरत पर बदलें", "body": "टेबल के edit आइकन से बाद में जानकारी ठीक करें।" }
+      ]
+    },
+    "purchases": {
+      "title": "खरीद दर्ज करना",
+      "summary": "जो खरीदें उसे ट्रैक करें और स्टॉक में कन्फर्म करें।",
+      "steps": [
+        { "title": "खरीद खोलें", "body": "रोज़ का काम में जाकर खरीद चुनें।" },
+        { "title": "खरीद बनाएं", "body": "नई खरीद दबाएं और सप्लायर, तारीख, प्रोडक्ट, मात्रा, रेट, GST और फ्रेट डालें।" },
+        { "title": "रकम जांचें", "body": "कन्फर्म करने से पहले कैलकुलेट हुई कुल रकम देखें।" },
+        { "title": "ड्राफ्ट खरीद कन्फर्म करें", "body": "कन्फर्म बटन दबाएं ताकि स्टॉक अपडेट हो।" },
+        { "title": "पुरानी खरीद खोजें", "body": "नंबर या सप्लायर से बिल खोजने के लिए सर्च बॉक्स इस्तेमाल करें।" }
+      ]
+    },
+    "sales": {
+      "title": "बिक्री दर्ज करना",
+      "summary": "ग्राहक बिक्री दर्ज करें और लाभ ट्रैक करें।",
+      "steps": [
+        { "title": "बिक्री खोलें", "body": "रोज़ का काम में जाकर बिक्री चुनें।" },
+        { "title": "बिक्री बनाएं", "body": "नई बिक्री दबाएं और ग्राहक व प्रोडक्ट चुनें।" },
+        { "title": "मात्रा और रेट डालें", "body": "मात्रा, रेट, GST और दूसरे चार्ज भरें।" },
+        { "title": "बिक्री सेव करें", "body": "सिस्टम रकम और लाभ रिपोर्ट के लिए कैलकुलेट करता है।" },
+        { "title": "बिक्री हिस्ट्री देखें", "body": "टेबल से बिक्री रिकॉर्ड खोजें और बदलें।" }
+      ]
+    },
+    "inventory": {
+      "title": "स्टॉक देखना",
+      "summary": "स्टॉक मूल्य, बैच और मूवमेंट हिस्ट्री देखें।",
+      "steps": [
+        { "title": "स्टॉक खोलें", "body": "रोज़ का काम में जाकर स्टॉक चुनें।" },
+        { "title": "स्टॉक मूल्य देखें", "body": "ऊपर कार्ड में कुल स्टॉक मूल्य, प्रोडक्ट लाइन और बैच दिखते हैं।" },
+        { "title": "मौजूदा स्टॉक देखें", "body": "Current Stock टैब में प्रोडक्ट मात्रा, वजन और मूल्य दिखते हैं।" },
+        { "title": "मूवमेंट देखें", "body": "Movements टैब में स्टॉक इस्तेमाल और allocation हिस्ट्री दिखती है।" },
+        { "title": "खरीद कन्फर्म रखें", "body": "स्टॉक तब अपडेट होता है जब खरीद कन्फर्म होती है।" }
+      ]
+    },
+    "payments": {
+      "title": "भुगतान",
+      "summary": "मिला और दिया गया पैसा दर्ज करें।",
+      "steps": [
+        { "title": "भुगतान खोलें", "body": "रोज़ का काम में जाकर भुगतान चुनें।" },
+        { "title": "लेना और देना देखें", "body": "सारांश कार्ड में लेना और देना पैसा दिखता है।" },
+        { "title": "भुगतान दर्ज करें", "body": "Record Payment दबाएं और received या paid चुनें।" },
+        { "title": "भुगतान तरीका चुनें", "body": "Cash, Bank Transfer, UPI या Cheque चुनें।" },
+        { "title": "रेफरेंस सेव करें", "body": "अगर रेफरेंस नंबर है तो डालें और सेव करें।" }
+      ]
+    },
+    "reports": {
+      "title": "रिपोर्ट निकालना",
+      "summary": "बिजनेस सारांश Excel या PDF में डाउनलोड करें।",
+      "steps": [
+        { "title": "रिपोर्ट खोलें", "body": "पैसा और रिपोर्ट में जाकर रिपोर्ट चुनें।" },
+        { "title": "रिपोर्ट प्रकार चुनें", "body": "खरीद, बिक्री, स्टॉक, लाभ, ROI, खर्च या भुगतान रिपोर्ट चुनें।" },
+        { "title": "Excel डाउनलोड करें", "body": "जब फिल्टर या ज्यादा कैलकुलेशन करना हो तो Excel इस्तेमाल करें।" },
+        { "title": "PDF डाउनलोड करें", "body": "शेयर या प्रिंट करने के लिए PDF इस्तेमाल करें।" },
+        { "title": "नियमित समीक्षा करें", "body": "हर हफ्ते या महीने रिपोर्ट डाउनलोड करके बिजनेस देखें।" }
+      ]
+    },
+    "documents": {
+      "title": "दस्तावेज़ अपलोड",
+      "summary": "बिल, इनवॉइस, कॉन्ट्रैक्ट और फाइलें अपलोड करें।",
+      "steps": [
+        { "title": "दस्तावेज़ खोलें", "body": "अन्य में जाकर दस्तावेज़ चुनें।" },
+        { "title": "रिकॉर्ड प्रकार चुनें", "body": "फाइल खरीद, बिक्री, भुगतान या दूसरे रिकॉर्ड से जुड़ी है, यह चुनें।" },
+        { "title": "फाइल चुनें", "body": "PDF, image या spreadsheet फाइल अपलोड करें।" },
+        { "title": "Upload दबाएं", "body": "दस्तावेज़ सेव होकर टेबल में दिखेगा।" },
+        { "title": "फाइल देखें", "body": "अपलोड की गई फाइलों को लिस्ट में देखें।" }
+      ]
+    },
+    "dashboard": {
+      "title": "डैशबोर्ड समझना",
+      "summary": "होम स्क्रीन के मुख्य नंबर समझें।",
+      "steps": [
+        { "title": "ऊपर के कार्ड पढ़ें", "body": "कार्ड में खरीद, बिक्री, लाभ, स्टॉक मूल्य, भुगतान, निवेश, खर्च और संपत्ति दिखते हैं।" },
+        { "title": "ट्रेंड देखें", "body": "मासिक चार्ट बताता है कि बिजनेस समय के साथ कैसा बदल रहा है।" },
+        { "title": "ग्राहक और सप्लायर देखें", "body": "टॉप लिस्ट से महत्वपूर्ण ग्राहक और सप्लायर पता चलते हैं।" },
+        { "title": "क्विक एक्शन इस्तेमाल करें", "body": "आम काम सीधे डैशबोर्ड से शुरू करें।" },
+        { "title": "हेल्प खोलें", "body": "आसान walkthrough चाहिए तो गाइड लिंक खोलें।" }
+      ]
+    },
+    "profit-loss": {
+      "title": "लाभ और हानि एनालिटिक्स",
+      "summary": "लेन-देन, FIFO बैच, प्रोडक्ट और ग्राहक के अनुसार लाभ देखें।",
+      "steps": [
+        { "title": "Profit & Loss खोलें", "body": "Profit & Money सेक्शन से Profit & Loss खोलें।" },
+        { "title": "पीरियड फिल्टर करें", "body": "From और To तारीख चुनें और Apply दबाएं।" },
+        { "title": "लेन-देन मार्जिन देखें", "body": "Transactions टैब हर बिक्री की revenue, cost, profit और margin दिखाता है।" },
+        { "title": "प्रोडक्ट और ग्राहक तुलना", "body": "By Product और By Customer से पता करें कि सबसे अच्छा मार्जिन कहाँ है।" },
+        { "title": "कम मार्जिन जांचें", "body": "Sale detail खोलकर देखें कि कौन से FIFO batch इस्तेमाल हुए।" }
+      ]
+    },
+    "batch-pl": {
+      "title": "FIFO बैच P&L",
+      "summary": "खरीद lot बिकने पर realized profit समझें।",
+      "steps": [
+        { "title": "पहले खरीद कन्फर्म करें", "body": "Confirmed purchase से cost per unit वाला inventory batch बनता है।" },
+        { "title": "बिक्री बनाएं", "body": "बिक्री पुराने batch पहले consume करती है यानी FIFO." },
+        { "title": "Batch टैब देखें", "body": "FIFO Batches tab sold quantity, remaining quantity, revenue और profit दिखाता है।" },
+        { "title": "Sale detail देखें", "body": "Sale view हर sale line के batch allocation दिखाता है।" },
+        { "title": "साफ margin इस्तेमाल करें", "body": "Pre-GST margin देखने के लिए taxable revenue भी stored है।" }
+      ]
+    },
+    "pl-statement": {
+      "title": "P&L स्टेटमेंट",
+      "summary": "किसी भी अवधि का Tally-style profit statement देखें।",
+      "steps": [
+        { "title": "P&L Statement खोलें", "body": "Accounting में जाकर P&L Statement चुनें।" },
+        { "title": "तारीख चुनें", "body": "महीना, तिमाही या साल के लिए period filter लगाएं।" },
+        { "title": "Gross profit देखें", "body": "Revenue minus COGS trading gross profit दिखाता है।" },
+        { "title": "Expenses देखें", "body": "Direct और indirect expenses अलग-अलग deduct होते हैं।" },
+        { "title": "Net profit जांचें", "body": "Net profit में expenses और depreciation शामिल हैं।" }
+      ]
+    },
+    "aging": {
+      "title": "AR/AP एजिंग",
+      "summary": "लेना और देना overdue bucket में देखें।",
+      "steps": [
+        { "title": "AR/AP Aging खोलें", "body": "Accounting में जाकर AR/AP Aging चुनें।" },
+        { "title": "Buckets देखें", "body": "Balances 0-30, 31-60, 61-90 और 90+ days में group होते हैं।" },
+        { "title": "Receivables देखें", "body": "Receivables ग्राहक से लेना बाकी पैसा दिखाता है।" },
+        { "title": "Payables देखें", "body": "Payables supplier को देना बाकी पैसा दिखाता है।" },
+        { "title": "Follow up करें", "body": "Overdue parties के लिए CRM activities में reminder बनाएं।" }
+      ]
+    },
+    "day-book": {
+      "title": "डे बुक",
+      "summary": "रोज़ के vouchers एक chronological register में देखें।",
+      "steps": [
+        { "title": "Day Book खोलें", "body": "Accounting में जाकर Day Book चुनें।" },
+        { "title": "तारीख फिल्टर करें", "body": "Voucher period के लिए date range चुनें।" },
+        { "title": "Entries देखें", "body": "Sales, purchases, payments और expenses साथ दिखते हैं।" },
+        { "title": "Debit और Credit देखें", "body": "Amounts debit और credit columns में अलग दिखते हैं।" },
+        { "title": "Daily review करें", "body": "हर business day के अंत में यह page review करें।" }
+      ]
+    },
+    "gst-summary": {
+      "title": "GST सारांश",
+      "summary": "Sales का output GST और purchases का input GST compare करें।",
+      "steps": [
+        { "title": "GST Summary खोलें", "body": "Accounting में जाकर GST Summary चुनें।" },
+        { "title": "Period चुनें", "body": "Return period चुनें और filters apply करें।" },
+        { "title": "Output GST पढ़ें", "body": "Output GST confirmed sales से आता है।" },
+        { "title": "Input GST पढ़ें", "body": "Input GST confirmed purchases से आता है।" },
+        { "title": "Payable जांचें", "body": "Positive payable मतलब tax देना है; negative मतलब input credit उपलब्ध है।" }
+      ]
+    },
+    "leads-pipeline": {
+      "title": "लीड पाइपलाइन",
+      "summary": "New lead से won/lost तक अवसर संभालें।",
+      "steps": [
+        { "title": "Leads Pipeline खोलें", "body": "CRM में जाकर Leads Pipeline चुनें।" },
+        { "title": "Lead बनाएं", "body": "Name, company, contact, source, estimated value और notes डालें।" },
+        { "title": "Stage सेट करें", "body": "Lead को New, Contacted, Qualified, Won या Lost में रखें।" },
+        { "title": "Value देखें", "body": "हर stage total estimated value दिखाता है।" },
+        { "title": "Next step प्लान करें", "body": "Calls, meetings और follow-ups के लिए activities बनाएं।" }
+      ]
+    },
+    "activities": {
+      "title": "Activities और Follow-ups",
+      "summary": "Calls, emails, meetings, tasks और reminders track करें।",
+      "steps": [
+        { "title": "Activities खोलें", "body": "CRM में जाकर Activities चुनें।" },
+        { "title": "Activity बनाएं", "body": "Type, subject, due date, status और notes चुनें।" },
+        { "title": "Due dates से काम करें", "body": "Upcoming और overdue activities टीम को समय पर follow up कराती हैं।" },
+        { "title": "Completed mark करें", "body": "Task पूरा होने पर status Completed करें।" },
+        { "title": "Notifications इस्तेमाल करें", "body": "Overdue activities reminder notifications बना सकती हैं।" }
+      ]
+    }
+  }
+}

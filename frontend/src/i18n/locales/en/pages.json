@@ -1,0 +1,197 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Your business health at a glance.",
+    "welcome": "Welcome, {{name}}",
+    "guideLink": "New here? Start with the 2-minute guide",
+    "quickPurchase": "Add Purchase",
+    "quickPurchaseBody": "Record a supplier bill or stock coming in.",
+    "quickPayment": "Record Payment",
+    "quickPaymentBody": "Mark money received or paid.",
+    "quickReports": "View Reports",
+    "quickReportsBody": "Download Excel and PDF summaries.",
+    "quickHelp": "Open Help",
+    "quickHelpBody": "Watch simple Hindi/English training videos.",
+    "totalPurchases": "Total Purchases",
+    "totalSales": "Total Sales",
+    "netProfit": "Net Profit",
+    "inventoryValue": "Inventory Value",
+    "outstanding": "Outstanding",
+    "investments": "Investments",
+    "expenses": "Expenses",
+    "assets": "Assets",
+    "monthlyTrends": "Monthly Trends",
+    "topCustomers": "Top Customers",
+    "topSuppliers": "Top Suppliers",
+    "purchases": "Purchases",
+    "sales": "Sales",
+    "profit": "Profit"
+  },
+  "masters": {
+    "subtitle": "Keep business lists clean so daily entries are easy.",
+    "dialogTitle": "{{mode}} {{title}}",
+    "titles": {
+      "partners": "Partners",
+      "suppliers": "Suppliers",
+      "customers": "Customers",
+      "product-categories": "Product Categories",
+      "product-qualities": "Product Qualities",
+      "products": "Products",
+      "locations": "Locations",
+      "expense-types": "Expense Types",
+      "income-types": "Income Types",
+      "asset-types": "Asset Types",
+      "tax-configurations": "GST Rates"
+    }
+  },
+  "purchases": {
+    "title": "Purchases",
+    "subtitle": "Record what your business buys and confirm stock entries.",
+    "new": "New Purchase",
+    "details": "Purchase Details",
+    "confirmItem": "Confirm {{number}}",
+    "lineItems": "Line Items",
+    "addLine": "Add Line",
+    "updatePurchase": "Update Purchase",
+    "createPurchase": "Create Purchase",
+    "confirmPurchase": "Confirm Purchase"
+  },
+  "sales": {
+    "title": "Sales",
+    "subtitle": "Record customer sales and track profit.",
+    "new": "New Sale",
+    "lineItems": "Line Items",
+    "addLine": "Add Line",
+    "createSale": "Create Sale",
+    "saleNumber": "Sale {{number}}"
+  },
+  "inventory": {
+    "title": "Inventory",
+    "subtitle": "See current stock, value, and movement history.",
+    "totalInventoryValue": "Total Inventory Value",
+    "productLines": "Product Lines",
+    "totalBatches": "Total Batches",
+    "currentStock": "Current Stock",
+    "movements": "Movements",
+    "batches": "Batches"
+  },
+  "payments": {
+    "title": "Payments",
+    "subtitle": "Track money received from customers and paid to suppliers.",
+    "record": "Record Payment",
+    "receivable": "Receivable",
+    "payable": "Payable",
+    "netOutstanding": "Net Outstanding"
+  },
+  "expenses": {
+    "title": "Expenses",
+    "subtitle": "Record everyday business costs.",
+    "add": "Add Expense"
+  },
+  "assets": {
+    "title": "Assets",
+    "subtitle": "Track vehicles, machines, equipment, and other company assets.",
+    "add": "Add Asset"
+  },
+  "investments": {
+    "title": "Partner Investments",
+    "subtitle": "Track partner money, returns, and ROI.",
+    "new": "New Investment",
+    "totalInvested": "Total Invested",
+    "totalReturns": "Total Returns",
+    "avgRoi": "Avg ROI",
+    "roiDashboard": "ROI Dashboard",
+    "investmentHistory": "Investment History",
+    "invested": "Invested",
+    "returns": "Returns",
+    "roi": "ROI"
+  },
+  "documents": {
+    "title": "Documents",
+    "subtitle": "Upload bills, invoices, contracts, and business files.",
+    "uploadTitle": "Upload Document"
+  },
+  "reports": {
+    "title": "Reports",
+    "subtitle": "Download clean Excel or PDF reports for business review.",
+    "heroHint": "Choose a report type, apply filters, and export in your preferred format.",
+    "stats": {
+      "standard": "Standard reports",
+      "templates": "Custom templates",
+      "documents": "Document types"
+    },
+    "filtersTitle": "Report filters",
+    "formats": {
+      "excel": "Excel",
+      "pdf": "PDF",
+      "csv": "CSV"
+    },
+    "tabs": {
+      "standard": "Standard Reports",
+      "documents": "Business Documents",
+      "custom": "Custom Reports",
+      "admin": "Template Admin"
+    },
+    "filters": {
+      "from": "From",
+      "to": "To"
+    },
+    "documents": {
+      "salesInvoice": "Sales Invoice",
+      "purchaseBill": "Purchase Bill",
+      "paymentReceipt": "Payment Receipt",
+      "expenseVoucher": "Expense Voucher",
+      "investmentStatement": "Investment Statement",
+      "recordsAvailable": "{{count}} records available",
+      "empty": "No records yet"
+    },
+    "selectRecord": "Select record",
+    "noTemplates": "No custom report templates are available for your role.",
+    "custom": {
+      "empty": "No custom report templates are available yet.",
+      "emptyAdminHint": "Create templates in the Template Admin tab to share reports with your team."
+    },
+    "admin": {
+      "sectionDetails": "Template details",
+      "sectionAccess": "Columns & access",
+      "columnsCount": "{{count}} columns"
+    },
+    "createTemplate": "Create Template",
+    "editTemplate": "Edit Template",
+    "deleteTemplate": "Delete",
+    "existingTemplates": "Existing Templates",
+    "templateName": "Template Name",
+    "templateDescription": "Description",
+    "baseReport": "Base Report",
+    "columns": "Columns",
+    "allowedRoles": "Allowed Roles",
+    "saveTemplate": "Save Template",
+    "templateCreated": "Report template created",
+    "templateUpdated": "Report template updated",
+    "templateSaveFailed": "Failed to save report template",
+    "items": {
+      "purchases": "Purchase Report",
+      "sales": "Sales Report",
+      "inventory": "Inventory Report",
+      "profit": "Profit Report",
+      "partner-roi": "Partner ROI Report",
+      "expenses": "Expense Report",
+      "payments": "Payment Report"
+    }
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "subtitle": "See who changed what and when.",
+    "system": "System"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Important alerts, reminders, and system messages.",
+    "none": "No notifications"
+  },
+  "users": {
+    "title": "User Management",
+    "subtitle": "Add team members and choose what each person can access.",
+    "add": "Add User"
+  }
+}
