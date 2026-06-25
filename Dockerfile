@@ -14,6 +14,8 @@ RUN npm ci --omit=dev
 COPY backend/prisma ./prisma
 RUN npx prisma generate
 COPY backend/src ./src
+COPY scripts/docker-entrypoint.sh /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
 COPY --from=frontend-build /app/frontend/dist /app/frontend/dist
 
 ENV NODE_ENV=production
@@ -22,4 +24,4 @@ ENV TRADECRM_STATIC_DIR=/app/frontend/dist
 ENV UPLOAD_DIR=/app/uploads
 EXPOSE 10000
 
-CMD ["sh", "-c", "npx prisma migrate deploy && node src/server.js"]
+CMD ["/app/docker-entrypoint.sh"]

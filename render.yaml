@@ -1,16 +1,5 @@
-# Render Blueprint — Coal ERP Web
+# Render Blueprint — Coal ERP Web (Firestore, matches desktop app)
 # https://dashboard.render.com/blueprint/new?repo=https://github.com/shahronit/Coal-ERP-Web
-#
-# NOTE: Render free tier allows one free Postgres per workspace. If you already
-# have a free DB, either add a payment method and use basic-256mb below, or
-# connect DATABASE_URL manually on the web service (Neon, Supabase, etc.).
-
-databases:
-  - name: coal-erp-db
-    databaseName: tradecrm
-    user: tradecrm
-    plan: basic-256mb
-    region: singapore
 
 services:
   - type: web
@@ -28,11 +17,13 @@ services:
       - key: HOST
         value: 0.0.0.0
       - key: DATABASE_PROVIDER
-        value: postgres
-      - key: DATABASE_URL
-        fromDatabase:
-          name: coal-erp-db
-          property: connectionString
+        value: firestore
+      - key: FIREBASE_PROJECT_ID
+        value: coal-trading-app
+      - key: FIREBASE_STORAGE_BUCKET
+        value: coal-trading-app.firebasestorage.app
+      - key: BACKUP_GCS_BUCKET
+        value: coal-trading-app-backups
       - key: TRADECRM_STATIC_DIR
         value: /app/frontend/dist
       - key: UPLOAD_DIR
@@ -41,3 +32,9 @@ services:
         generateValue: true
       - key: JWT_REFRESH_SECRET
         generateValue: true
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false

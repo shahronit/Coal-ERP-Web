@@ -1,4 +1,6 @@
 const path = require('path');
+const fs = require('fs');
+const os = require('os');
 
 const backendRoot = path.join(__dirname, '../..');
 require('dotenv').config({ path: path.join(backendRoot, '.env'), override: true });
@@ -12,8 +14,12 @@ if (process.env.GOOGLE_APPLICATION_CREDENTIALS && !path.isAbsolute(process.env.G
   process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(backendRoot, process.env.GOOGLE_APPLICATION_CREDENTIALS);
 }
 
-const fs = require('fs');
-const os = require('os');
+// Cloud deploy (Render, etc.): write service account JSON from env to a temp file
+if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON && !process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+  const credPath = path.join(os.tmpdir(), 'firebase-service-account.json');
+  fs.writeFileSync(credPath, process.env.FIREBASE_SERVICE_ACCOUNT_JSON, { mode: 0o600 });
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = credPath;
+}
 
 const deployMode = process.env.TRADECRM_MODE || 'standalone';
 const userDataDir = process.env.TRADECRM_USER_DATA_DIR || path.join(os.homedir(), '.tradecrm-pro');
