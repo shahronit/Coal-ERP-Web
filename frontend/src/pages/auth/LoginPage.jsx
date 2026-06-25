@@ -5,7 +5,6 @@ import {
   Box, Card, CardContent, TextField, Button, Typography, Alert, Stack, useTheme,
 } from '@mui/material';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useTranslation } from 'react-i18next';
 import { useLoginMutation, useGetPublicBrandingQuery } from '../../store/api/services';
 import { setCredentials } from '../../store/slices/authSlice';
@@ -25,8 +24,8 @@ export default function LoginPage() {
   const { t } = useTranslation();
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
-  const [email, setEmail] = useState('superadmin@tradecrm.com');
-  const [password, setPassword] = useState('Demo@123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [login, { isLoading, error }] = useLoginMutation();
   const { data: brandingData } = useGetPublicBrandingQuery(undefined, { pollingInterval: 60000 });
@@ -162,32 +161,6 @@ export default function LoginPage() {
                   </Box>
                 </Box>
               </Box>
-
-              <Alert
-                severity="info"
-                icon={<InfoOutlinedIcon fontSize="inherit" />}
-                sx={{
-                  width: '100%',
-                  alignItems: 'flex-start',
-                  '& .MuiAlert-message': { width: '100%' },
-                }}
-              >
-                <Typography variant="subtitle2" fontWeight={700} gutterBottom>
-                  {t('auth.needDemoAccess')}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  component="code"
-                  sx={{
-                    display: 'block',
-                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-                    fontSize: '0.8125rem',
-                    wordBreak: 'break-all',
-                  }}
-                >
-                  {t('auth.demoCredentials')}
-                </Typography>
-              </Alert>
 
               <Button
                 variant="outlined"
