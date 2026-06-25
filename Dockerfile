@@ -7,6 +7,7 @@ COPY frontend/ ./
 RUN npm run build
 
 FROM node:20-alpine AS backend
+RUN apk add --no-cache openssl
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci --omit=dev

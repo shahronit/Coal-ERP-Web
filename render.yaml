@@ -1,6 +1,9 @@
 # Render Blueprint — Coal ERP Web
-# Deploy: push to main, then open Dashboard → Blueprints → New Blueprint Instance
-# Or: https://dashboard.render.com/blueprint/new?repo=https://github.com/shahronit/Coal-ERP-Web
+# https://dashboard.render.com/blueprint/new?repo=https://github.com/shahronit/Coal-ERP-Web
+#
+# NOTE: Render free tier allows one free Postgres per workspace. If you already
+# have a free DB, either add a payment method and use basic-256mb below, or
+# connect DATABASE_URL manually on the web service (Neon, Supabase, etc.).
 
 databases:
   - name: coal-erp-db
@@ -15,14 +18,10 @@ services:
     runtime: docker
     dockerfilePath: ./Dockerfile
     dockerContext: .
-    plan: starter
+    plan: free
     region: singapore
     healthCheckPath: /api/health
     autoDeploy: true
-    disk:
-      name: uploads
-      mountPath: /app/uploads
-      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
