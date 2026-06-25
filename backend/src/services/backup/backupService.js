@@ -217,7 +217,12 @@ const hasBackupForCurrentMonth = async () => {
 
 const ensureMonthlyBackup = async () => {
   const settings = await getSettings();
-  if (await hasBackupForCurrentMonth()) return settings;
+  try {
+    if (await hasBackupForCurrentMonth()) return settings;
+  } catch (err) {
+    logger.warn('Monthly backup check skipped', { error: err.message });
+    return settings;
+  }
   try {
     return await runBackup();
   } catch (err) {

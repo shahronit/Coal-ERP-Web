@@ -96,7 +96,12 @@ const checkLowInventory = async () => {
 };
 
 const startCronJobs = () => {
-  ensureMonthlyBackup();
+  // Cloud web deploy (Render): skip local backup on startup — ephemeral disk, Firestore quota sensitive
+  if (!process.env.TRADECRM_STATIC_DIR) {
+    ensureMonthlyBackup().catch((err) => {
+      logger.error('Monthly backup check failed', { error: err.message });
+    });
+  }
 
   cron.schedule('0 8 * * *', async () => {
     try {
@@ -109,6 +114,7 @@ const startCronJobs = () => {
     }
   });
   cron.schedule('0 2 1 * *', async () => {
+    if (process.env.TRADECRM_STATIC_DIR) return;
     try {
       await runBackup();
       logger.info('Monthly local backup completed');
